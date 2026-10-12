@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <title>{% block title %}Plataforma{% endblock %}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <meta charset="UTF-8">
+    <title>Plataforma de Aprendizagem</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <nav>
-    <img src="{{ url_for('static', filename='imagens//plataforma.png') }}" alt="Plataforma" height="40">
-    <a href="/">Início</a> | <a href="/dashboard">Ranking</a> | <a href="/login">Login</a>
-  </nav>
-  <div class="container">
-    {% block content %}{% endblock %}
-  </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="{{ url_for('static', filename='imagens/logo.png') }}" 
+                 alt="Logo Plataforma" height="40">
+        </div>
+        <div class="navbar-right">
+            <a href="{{ url_for('home') }}">Início</a>
+            <a href="{{ url_for('register') }}">Registrar</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Conteúdo dinâmico -->
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>
